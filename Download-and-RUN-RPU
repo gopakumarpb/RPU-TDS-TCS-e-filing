@@ -3,13 +3,14 @@
 #Modified for TDS_RPU_3.2 on 18-06-2020
 # This script is expected to 
 #create a short cut from Destop to
-#Download and run an RPU.
+#Download and run an RPU after
+#Browse independent
 #Download RPU3.2 from Incometax Department 
 #Through wget and show a download bar for the progress.
 if [ ! -d ~/TDSTAX ]; then
 mkdir ~/TDSTAX
 wget -P ~/TDSTAX/ https://www.tin-nsdl.com/downloads/e-tds/download/TDS_RPU_3.2.zip 2>&1\
-| sed -u 's/.* \([0-9]\+%\)\ \+\([0-9.]\+.\) \(.*\)/\1\n# Downloading at \2\/s, ETA \3/' | zenity --progress --title="Close the Firefox and wait..." --width=600 --height=400 
+| sed -u 's/.* \([0-9]\+%\)\ \+\([0-9.]\+.\) \(.*\)/\1\n# Downloading at \2\/s, ETA \3/' | zenity --progress --title="Please wait till you see OK button..." --width=600 --height=400 
 
 #Start a loop testing if zenity is running, and if not kill wget
 RUNNING=0
@@ -33,9 +34,9 @@ echo "cd ~/TDSTAX/RPU/">> ~/Desktop/rpu.sh &&
 FILE=$(find ~/TDSTAX/RPU -name "TDS_RPU_*")
 echo "java -jar ${FILE##*/}">> ~/Desktop/rpu.sh &&
 #A zenity  message to show the sucess.
-zenity --info --text '<span foreground="blue" font="20">Now you have Installed the RPU !\nThere is a file named  in your Desktop.\nRight Click on it , go to properties,\nthen to Permissions, \nput a tick mark to make it executable!
+zenity --info --text '<span foreground="#F0D510" background="#1410F0" font="16">Now you have Installed the RPU !\nThere is a file named "rpu.sh" in your Desktop.\nRight Click on it , go to properties,\nthen to Permissions, \nput a tick mark to make it executable!
          close and double click on it !\nPlease note that the version utilised by this script is TDS_RPU_3.2!</span>' --width=600 --height=400; else
-zenity --info --text '<span foreground="red" font="20">  Sorry! The RPU is already in your system !\nIf you are facing an installation error,\n
+zenity --info --text '<span foreground="tomato" background="#070500" font="16">  Sorry! The RPU is already in your system !\nIf you are facing an installation error,\n
 before clicking the run button, ensure the following:\n1.The file named"rpu.sh" is removed from your Desktop\n2. The folder named "TDSTAX" is deleted from your /home folder!</span>\n\n<i></i>' --width=600 --height=200
 exit
 fi
