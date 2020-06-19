@@ -34,9 +34,9 @@ echo "cd ~/TDSTAX/RPU/">> ~/Desktop/rpu.sh &&
 FILE=$(find ~/TDSTAX/RPU -name "TDS_RPU_*")
 echo "java -jar ${FILE##*/}">> ~/Desktop/rpu.sh &&
 #A zenity  message to show the sucess.
-zenity --info --text '<span foreground="#F0D510" background="#1410F0" font="16">Now you have Installed the RPU !\nThere is a file named "rpu.sh" in your Desktop.\nRight Click on it , go to properties,\nthen to Permissions, \nput a tick mark to make it executable!
+zenity --info --text '<span foreground="blue"  font="16">Now you have Installed the RPU !\nThere is a file named "rpu.sh" in your Desktop.\nRight Click on it , go to properties,\nthen to Permissions, \nput a tick mark to make it executable!
          close and double click on it !\nPlease note that the version utilised by this script is TDS_RPU_3.2!</span>' --width=600 --height=400; else
-zenity --info --text '<span foreground="tomato" background="#070500" font="16">  Sorry! The RPU is already in your system !\nIf you are facing an installation error,\n
+zenity --info --text '<span foreground="red"  font="16">  Sorry! The RPU is already in your system !\nIf you are facing an installation error,\n
 before clicking the run button, ensure the following:\n1.The file named"rpu.sh" is removed from your Desktop\n2. The folder named "TDSTAX" is deleted from your /home folder!</span>\n\n<i></i>' --width=600 --height=200
 exit
 fi
