@@ -33,6 +33,7 @@ echo "#!/bin/bash" >> ~/Desktop/rpu.sh &&
 echo "cd ~/TDSTAX/RPU/">> ~/Desktop/rpu.sh &&
 FILE=$(find ~/TDSTAX/RPU -name "TDS_RPU_*")
 echo "java -jar ${FILE##*/}">> ~/Desktop/rpu.sh &&
+chmod +x ~/Desktop/rpu.sh
 #A zenity  message to show the sucess.
 zenity --info --text '<span foreground="blue"  font="16">Now you have Installed the RPU !\nThere is a file named "rpu.sh" in your Desktop.\nRight Click on it , go to properties,\nthen to Permissions, \nput a tick mark to make it executable!
          close and double click on it !\nPlease note that the version utilised by this script is TDS_RPU_3.2!</span>' --width=600 --height=400; else
